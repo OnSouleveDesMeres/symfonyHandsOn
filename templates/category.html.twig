@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Catégories {% endblock %}
+
+{% block body %}
+
+    <h3 class="titleUnderline">{{ body }}</h3>
+
+    <ul>
+        {% for categorie in categories %}
+
+            <li>
+                {{ categorie.label }}
+            </li>
+
+        {% endfor %}
+    </ul>
+
+{% endblock %}

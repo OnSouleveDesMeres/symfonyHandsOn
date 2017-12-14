@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Contact {% endblock %}
+{% block body %}
+
+    <h3 class="titleUnderline">{{ body }}</h3>
+    <form method="post" action="/contact/" class="row">
+        <div class="col-sm-12 col-md-6">
+            <label for="username">Nom</label>
+            <input class="form-control" placeholder="Votre nom" aria-label="username" type="text" name="username" id="username" required>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <label for="username">Prénom</label>
+            <input class="form-control mr-sm-2" placeholder="Votre prénom" aria-label="userfirstname" type="text" name="userfirstname" id="userfirstname" required>
+        </div>
+        <div class="col-sm-12 col-md-12">
+            <label for="usermail">Email</label>
+            <input class="form-control mr-sm-2" placeholder="Votre mail" aria-label="email" type="email" name="usermail" id="usermail" required>
+        </div>
+        <div class="col-sm-12">
+            <label for="username">Message</label>
+            <textarea id="act_desc" class="form-control" rows="3" placeholder="Votre message" name="description" style="resize: vertical;"></textarea>
+            <script>
+                var editor = CKEDITOR.replace('description', {
+                    customConfig: '/resources/panel/dist/js/ckeditor_config.js'
+                });
+            </script>
+        </div>
+        <div class="g-recaptcha" data-sitekey="6Lc_fjoUAAAAALO01F0Wq-9BuY4BAYpaNj0MMmfk"></div>
+        <div class="col-sm-12 col-md-6"></div>
+        <button class="btn btn-info col-sm-4 offset-sm-4" type="submit">Envoyer le formulaire de contact <i class="fa fa-paper-plane"></i></button>
+    </form>
+
+{% endblock %}

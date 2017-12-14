@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h3 class="titleUnderline">{{ body }}</h3>
+
+    <div class="row text-center">
+        <div class="col-lg-6 col-md-12">
+            <div class="col-sm-12 titleParcours">
+                <h1>JOBS</h1>
+            </div>
+            {% for job in jobs %}
+
+                <div class="alert alert-info">
+                    <h2>{{ job.label }}</h2>
+                    <p>Du {{ job.startDate|date("m/d/Y") }} au {{ job.endDate|date("m/d/Y") }}</p>
+                    <p>Référent(e) : {{ job.referent }}</p>
+                </div>
+
+            {% endfor %}
+
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <div class="col-sm-12 titleParcours">
+                <h1>DIPLÔMES</h1>
+            </div>
+            {% for diploma in diplomas %}
+
+                {% if diploma.valide == 2 %}
+
+                    <div class="alert alert-danger">
+                        <h2>{{ diploma.label }}</h2>
+                        <span>Formation arrêtée le {{ diploma.obtainDate|date("m/d/Y") }}</span>
+
+                {% else %}
+
+                    {% if diploma.valide == 0 %}
+
+                        <div class="alert alert-warning">
+                            <h2>{{ diploma.label }}</h2>
+                            <span>En cours d'obtention !</span>
+
+                    {% else %}
+
+                        <div class="alert alert-success">
+                            <h2>{{ diploma.label }}</h2>
+                            <span>Obtenu le {{ diploma.obtainDate|date("m/d/Y") }}</span>
+
+                    {% endif %}
+
+                {% endif %}
+
+                    </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock %}

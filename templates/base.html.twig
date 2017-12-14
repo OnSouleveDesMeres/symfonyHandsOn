@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('css/test.css') }}" />
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <script src='https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js'></script>
+        <title>{% block title %} Accueil {% endblock %}</title>
+    </head>
+    <body>
+    <a onclick="gotop()" id="return-to-top"><i class="fa fa-arrow-up"></i></a>
+    {% include 'navbar.html.twig' with {'connected':connected} %}
+        <div class="container">
+            {% block body %} {% endblock %}
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $(window).scroll(function () {
+                if ($(this).scrollTop() >= 2)
+                    $("#return-to-top").fadeIn(200);
+                else
+                    $("#return-to-top").fadeOut(200);
+
+            });
+
+            function gotop() {
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 500);
+            }
+        </script>
+    </body>
+</html>
