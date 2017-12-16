@@ -21,7 +21,7 @@ class IndexController extends Controller
      * @return Response
      */
     public function accueil(){
-        return $this->render('base.html.twig', array(
+        return $this->render('index.html.twig', array(
             'title' => "Accueil",
             'body' => "<h2>Vous êtes bien sur l'accueil</h2>",
             'scripts' => "",

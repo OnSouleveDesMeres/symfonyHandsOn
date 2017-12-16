@@ -88,3 +88,129 @@ td{
 tr.competencesRows{
     border-top: 1px solid #e9ecef;
 }
+
+.background-image{
+    margin-top: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+@media screen and (min-width: 960px){
+    .background-image{
+        background-image: url("https://avocaventures.com/wp-content/uploads/2014/11/lines-of-code.jpg");
+        height: 300px;
+        background-position: center;
+    }
+}
+
+
+@media screen and (max-width: 960px){
+    .background-image{
+        background-image: url("https://avocaventures.com/wp-content/uploads/2014/11/lines-of-code.jpg");
+        height: 200px;
+        background-position: center;
+    }
+}
+
+.circle{
+    border-radius: 100%;
+    position: absolute;
+    margin-left: 33%;
+    margin-right: 33%;
+    width: 33%;
+}
+
+@media (min-width: 991px) and (max-width: 1199px){
+    .circle{
+        top: -160px;
+    }
+
+    .content{
+        margin-top: 180px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 990px){
+    .circle{
+        top: -120px;
+    }
+
+    .content{
+        margin-top: 140px;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px){
+    .circle{
+        top: -100px;
+    }
+
+    .content{
+        margin-top: 100px;
+    }
+}
+
+@media screen and (max-width: 575px){
+    .circle{
+        top: -60px;
+    }
+
+    .content{
+        margin-top: 120px;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .circle{
+        top: -180px;
+    }
+
+    .content{
+        margin-top: 200px;
+    }
+}
+
+.citation{
+    margin-bottom: 40px;
+    font-weight: 800;
+    font-size: 26px;
+}
+
+.underline{
+    font-style: oblique;
+    text-decoration: underline;
+}
+
+span > ul > li {
+    list-style: none;
+    font-style: oblique;
+}
+
+span > ul > li:before{
+    content: "→";
+    font-size: 22px;
+}
+
+#sendMail{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer{
+    background-color: #f8f9fa;
+}
+
+footer > div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

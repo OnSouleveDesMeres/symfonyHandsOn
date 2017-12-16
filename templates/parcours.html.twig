@@ -13,7 +13,7 @@
 
                 <div class="alert alert-info">
                     <h2>{{ job.label }}</h2>
-                    <p>Du {{ job.startDate|date("m/d/Y") }} au {{ job.endDate|date("m/d/Y") }}</p>
+                    <p>Du {{ job.startDate|date("d/m/Y") }} au {{ job.endDate|date("d/m/Y") }}</p>
                     <p>Référent(e) : {{ job.referent }}</p>
                 </div>
 
@@ -30,7 +30,7 @@
 
                     <div class="alert alert-danger">
                         <h2>{{ diploma.label }}</h2>
-                        <span>Formation arrêtée le {{ diploma.obtainDate|date("m/d/Y") }}</span>
+                        <span>Formation arrêtée le {{ diploma.obtainDate|date("d/m/Y") }}</span>
 
                 {% else %}
 
@@ -44,7 +44,7 @@
 
                         <div class="alert alert-success">
                             <h2>{{ diploma.label }}</h2>
-                            <span>Obtenu le {{ diploma.obtainDate|date("m/d/Y") }}</span>
+                            <span>Obtenu le {{ diploma.obtainDate|date("d/m/Y") }}</span>
 
                     {% endif %}
 
