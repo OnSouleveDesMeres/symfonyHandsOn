@@ -15,9 +15,9 @@
         </div>
         <div class="col-sm-12 col-md-12">
             <label for="usermail">Email</label>
-            <input class="form-control mr-sm-2" placeholder="Votre mail" aria-label="email" type="email" name="usermail" id="usermail" required>
+            <input class="form-control mr-sm-2" placeholder="Votre mail" aria-label="usermail" type="email" name="usermail" id="usermail" required>
         </div>
-        <div class="col-sm-12">
+        <div class="col-sm-12" id="messageText">
             <label for="description">Message</label>
             <textarea id="message" class="form-control" rows="3" placeholder="Votre message" name="description" style="resize: vertical;" required></textarea>
             <script>
@@ -27,6 +27,9 @@
             </script>
         </div>
         <!--<div class="g-recaptcha" data-sitekey="6LcqJj0UAAAAAFi2RDP53uVLjw54_9FsfOqGbpTA"></div>-->
+        {% if isMailSent == true %}
+            <div class="alert alert-success text-center col-sm-6 offset-sm-3"><span>Le message a bien été envoyé !</span></div>
+        {% endif %}
         <button class="btn btn-info col-lg-4 offset-lg-4 col-md-6 offset-md-3" id="sendMail" type="submit">Envoyer le formulaire de contact <i class="fa fa-paper-plane"></i></button>
     </form>
 
