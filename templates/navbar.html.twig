@@ -24,7 +24,7 @@
                 <li class="nav-item dropdown col-sm-12">
                     {% if connected == false %}
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Connexion
+                            Votre compte
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <ul>
@@ -38,6 +38,11 @@
                                         Paramètres
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="/logout">
+                                        Se déconnecter
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     {% else %}
@@ -45,9 +50,9 @@
                             Connexion
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="email" placeholder="email" aria-label="Email">
-                                <input class="form-control mr-sm-2" type="password" placeholder="password" aria-label="Password">
+                            <form class="form-inline my-2 my-lg-0" action="/login" method="post">
+                                <input class="form-control mr-sm-2" name="pseudo" type="text" placeholder="Pseudo" aria-label="Pseudo">
+                                <input class="form-control mr-sm-2" name="password" type="password" placeholder="password" aria-label="Password">
                                 <button class="btn btn-outline-success col-sm-6 offset-sm-3" type="submit">Connexion</button>
                             </form>
                         </div>

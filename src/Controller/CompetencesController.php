@@ -7,6 +7,7 @@ use App\Entity\Competences;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class CompetencesController extends Controller
 {
@@ -15,6 +16,12 @@ class CompetencesController extends Controller
      */
     public function index()
     {
+
+        $session = new Session();
+        $session->start();
+
+        $isConnected = $session->get('isConnected');
+
         $categoryList = $this->getDoctrine()
             ->getRepository(Category::class)
             ->findAll();
@@ -48,7 +55,7 @@ class CompetencesController extends Controller
             'title' => "Mes compétences",
             'body' => "Voici les différentes compétences que j'ai pu acquérir au fil de mes années d'études",
             'scripts' => "",
-            'connected' => true,
+            'connected' => $isConnected,
             'competencesList' => $res,
         ));
     }

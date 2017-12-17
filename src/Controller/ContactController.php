@@ -16,9 +16,11 @@ class ContactController extends Controller
     {
 
         $isMailSent = false;
+
         $session = new Session();
         $session->start();
-        $is_connected = $session->get('isConnected');
+
+        $isConnected = $session->get('isConnected');
 
         if(isset($_POST)){
             if(isset($_POST['username']) && isset($_POST['userfirstname']) && isset($_POST['usermail']) && isset($_POST['description'])){
@@ -55,7 +57,7 @@ class ContactController extends Controller
         return $this->render('contact.html.twig', array(
             'title' => "Me contacter",
             'body' => "Contactez-moi en remplissant le formulaire suivant",
-            'connected' => $is_connected,
+            'connected' => $isConnected,
             'isMailSent' => $isMailSent,
         ));
     }

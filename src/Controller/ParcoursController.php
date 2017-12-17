@@ -7,6 +7,7 @@ use App\Entity\Jobs;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class ParcoursController extends Controller
 {
@@ -16,6 +17,11 @@ class ParcoursController extends Controller
     public function index()
     {
 
+        $session = new Session();
+        $session->start();
+
+        $isConnected = $session->get('isConnected');
+
         $jobsList = $this->getDoctrine()->getRepository(Jobs::class)->findBy([], ['id' => 'DESC']);
         $diplomasList = $this->getDoctrine()->getRepository(Diplomas::class)->findBy([], ['id' => 'DESC']);
 
@@ -23,7 +29,7 @@ class ParcoursController extends Controller
             'title' => "Mon parcours",
             'body' => "Voici mon cursus scolaire ainsi que les différents jobs effectués",
             'scripts' => "",
-            'connected' => true,
+            'connected' => $isConnected,
             'jobs' => $jobsList,
             'diplomas' => $diplomasList,
         ));
