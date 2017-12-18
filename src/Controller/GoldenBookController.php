@@ -20,7 +20,9 @@ class GoldenBookController extends Controller
         $session->start();
 
         $isConnected = $session->get('isConnected');
-        $goldenList = $this->getDoctrine()->getRepository(GoldenBook::class)->findAll();
+        $goldenList = $this->getDoctrine()->getRepository(GoldenBook::class)->findBy([],[
+            'id' => 'DESC',
+        ]);
 
         return $this->render('golden.html.twig', array(
             'title' => "Livre d'or",

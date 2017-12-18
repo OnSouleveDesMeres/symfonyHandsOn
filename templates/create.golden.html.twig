@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Contact {% endblock %}
+{% block body %}
+
+    <h3 class="titleUnderline">{{ body }}</h3>
+    <form method="post" action="/donnez-votre-avis" class="row">
+        <div class="col-sm-12" id="messageText">
+            <textarea id="message" class="form-control" rows="3" placeholder="Votre avis" name="avis" style="resize: vertical;" required></textarea>
+            <script>
+                var editor = CKEDITOR.replace('avis', {
+                    customConfig: '/resources/panel/dist/js/ckeditor_config.js'
+                });
+            </script>
+        </div>
+        {% if is_inserted == true %}
+            <div class="alert alert-success text-center col-sm-6 offset-sm-3"><span>Votre avis a bien été pris en compte !</span></div>
+        {% endif %}
+        <button class="btn btn-info col-lg-4 offset-lg-4 col-md-6 offset-md-3" id="sendMail" type="submit">Envoyer votre avis <i class="fa fa-paper-plane"></i></button>
+    </form>
+
+{% endblock %}

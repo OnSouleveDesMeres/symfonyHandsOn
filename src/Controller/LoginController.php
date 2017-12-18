@@ -33,10 +33,11 @@ class LoginController extends Controller
         {
             if(isset($_POST['pseudo']) && $_POST['pseudo'] != "" && isset($_POST['password']) && $_POST['password'] != "")
             {
+                $password = sha1($_POST['password']);
                 $personLogin = $this->getDoctrine()->getRepository(Person::class)
                     ->findOneBy([
-                        'pseudo' => $_POST['pseudo'],
-                        'password' => sha1($_POST['password']),
+                        'pseudo' => "{$_POST['pseudo']}",
+                        'password' => "{$password}",
                         ]
                     );
 

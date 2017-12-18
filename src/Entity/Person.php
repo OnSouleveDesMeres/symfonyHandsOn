@@ -42,6 +42,27 @@ class Person
     private $password;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\GoldenBook", mappedBy="golden")
+     */
+    private $goldenbook;
+
+    /**
+     * @return mixed
+     */
+    public function getGoldenbook()
+    {
+        return $this->goldenbook;
+    }
+
+    /**
+     * @param mixed $goldenbook
+     */
+    public function setGoldenbook($goldenbook)
+    {
+        $this->goldenbook = $goldenbook;
+    }
+
+    /**
      * @return mixed
      */
     public function getId()

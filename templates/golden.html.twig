@@ -3,7 +3,11 @@
 {% block body %}
 
     <h3 class="titleUnderline">{{ body }}</h3>
+    {% if connected == false %}
 
+        <a href="/donnez-votre-avis"><div class="btn btn-info" id="addAvis">Ajouter un avis</div></a>
+
+    {% endif %}
 
 
     {% for golden in goldenList %}
@@ -13,7 +17,7 @@
                 <h5 class="modal-title">Ce que {{ golden.author.firstname }} {{ golden.author.lastname }} pense de moi :</h5>
             </div>
             <div class="modal-body">
-                <p>{{ golden.content }}</p>
+                <p>{{ golden.content|raw }}</p>
             </div>
             <div class="modal-footer">
                 <p>Publié le : {{ golden.publishedDate|date("d/m/Y") }}</p>
