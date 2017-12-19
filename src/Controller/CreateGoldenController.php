@@ -22,6 +22,9 @@ class CreateGoldenController extends Controller
 
         $isConnected = $session->get('isConnected');
 
+        if($isConnected)
+            $this->redirectToRoute('accueil');
+
         $isInserted = false;
 
         if(isset($_POST['avis']) && $_POST['avis'] != "")

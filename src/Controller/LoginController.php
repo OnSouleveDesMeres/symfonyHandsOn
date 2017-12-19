@@ -24,7 +24,7 @@ class LoginController extends Controller
 
         $isConnected = $session->get('isConnected');
 
-        if(!$isConnected)
+        if($isConnected)
         {
             return $this->redirectToRoute('accueil');
         }
@@ -51,7 +51,7 @@ class LoginController extends Controller
 
                     //And store some infos into it
                     $session->set('pseudo', $personLogin->getPseudo());
-                    $session->set('isConnected', false);
+                    $session->set('isConnected', true);
 
                     //then redirect to index page without show any thing
                     return $this->redirectToRoute('accueil');
@@ -65,7 +65,7 @@ class LoginController extends Controller
             'title' => "Connexion",
             'body' => "Veuillez vous identifier !",
             'scripts' => "",
-            'connected' => true,
+            'connected' => $isConnected,
             'loginState' => $isError,
         ));
 
@@ -77,7 +77,7 @@ class LoginController extends Controller
     public function logout()
     {
         $session = new Session();
-        $session->set('isConnected', true);
+        $session->set('isConnected', false);
         return $this->redirectToRoute('accueil');
     }
 

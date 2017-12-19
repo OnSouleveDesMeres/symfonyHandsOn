@@ -22,10 +22,6 @@ class ContactController extends Controller
 
         $isConnected = $session->get('isConnected');
 
-        if($isConnected){
-            $this->redirectToRoute('accueil');
-        }
-
         if(isset($_POST)){
             if(isset($_POST['username']) && isset($_POST['userfirstname']) && isset($_POST['usermail']) && isset($_POST['description'])){
 

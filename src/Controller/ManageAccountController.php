@@ -20,7 +20,7 @@ class ManageAccountController extends Controller
 
         $isConnected = $session->get('isConnected');
 
-        if($isConnected)
+        if(!$isConnected)
         {
             return $this->redirectToRoute('login');
         }

@@ -20,6 +20,7 @@ class GoldenBookController extends Controller
         $session->start();
 
         $isConnected = $session->get('isConnected');
+
         $goldenList = $this->getDoctrine()->getRepository(GoldenBook::class)->findBy([],[
             'id' => 'DESC',
         ]);
