@@ -4,6 +4,38 @@
 
     <h3 class="titleUnderline">{{ body }}</h3>
 
-    {{ competencesList|raw }}
+    {% for category in categoriesList %}
+
+        <table class='col-sm-12 table text-center'>
+            <thead class='thead-dark'>
+                <tr class='col-sm-12'>
+                    <th colspan='3' class='col-sm-12'>
+                        <h2>-- {{ category.label }} --</h2>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% set nbCol = 3 %}
+                {% for competence in category.competences %}
+                    {% if loop.index0 % 3 == 0 %}
+
+                        <tr>
+
+                    {% endif %}
+
+                        <td style='width: 33%'><a href='{{ competence.link }}'>{{ competence.label }}</a></td>
+
+                    {% if (loop.index0 % 3 == 2 or loop.last) %}
+
+                        </tr>
+
+                    {% endif %}
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    {% endfor %}
 
 {% endblock %}

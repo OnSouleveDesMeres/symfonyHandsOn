@@ -32,6 +32,31 @@ class Diplomas
     private $valide;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $city;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $linkToCity;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $linkToSchool;
+
+    /**
+     * @ORM\Column(type="string", length=5)
+     */
+    private $cp;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -93,6 +118,86 @@ class Diplomas
     public function setValide($valide)
     {
         $this->valide = $valide;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param mixed $city
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLinkToCity()
+    {
+        return $this->linkToCity;
+    }
+
+    /**
+     * @param mixed $linkToCity
+     */
+    public function setLinkToCity($linkToCity)
+    {
+        $this->linkToCity = $linkToCity;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLinkToSchool()
+    {
+        return $this->linkToSchool;
+    }
+
+    /**
+     * @param mixed $linkToSchool
+     */
+    public function setLinkToSchool($linkToSchool)
+    {
+        $this->linkToSchool = $linkToSchool;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCp()
+    {
+        return $this->cp;
+    }
+
+    /**
+     * @param mixed $cp
+     */
+    public function setCp($cp)
+    {
+        $this->cp = $cp;
     }
 
 

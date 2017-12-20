@@ -30,7 +30,7 @@
 
                     <div class="alert alert-danger">
                         <h2>{{ diploma.label }}</h2>
-                        <span>Formation arrêtée le {{ diploma.obtainDate|date("d/m/Y") }}</span>
+                        <p>Formation arrêtée le {{ diploma.obtainDate|date("d/m/Y") }}</p>
 
                 {% else %}
 
@@ -38,18 +38,20 @@
 
                         <div class="alert alert-warning">
                             <h2>{{ diploma.label }}</h2>
-                            <span>En cours d'obtention !</span>
+                            <p>En cours d'obtention !</p>
 
                     {% else %}
 
                         <div class="alert alert-success">
                             <h2>{{ diploma.label }}</h2>
-                            <span>Obtenu le {{ diploma.obtainDate|date("d/m/Y") }}</span>
+                            <p>Obtenu le {{ diploma.obtainDate|date("d/m/Y") }}</p>
 
                     {% endif %}
 
                 {% endif %}
 
+                            <a href="{{ diploma.linkToSchool }}"><p>{{ diploma.name }}</p></a>
+                            <a href="{{ diploma.linkToCity }}"><span>{{ diploma.cp }} {{ diploma.city }}</span></a>
                     </div>
 
             {% endfor %}
